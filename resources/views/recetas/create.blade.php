@@ -62,7 +62,7 @@
                     <label for="ingredientes">Ingredientes</label>
                     <input type="hidden" name="ingredientes" value=" {{ old("ingredientes") }}">
                     <trix-editor input="ingredientes" 
-                    class="form-control @error("preparacion") is-invalid @enderror"></trix-editor>
+                    class="form-control @error("ingredientes") is-invalid @enderror"></trix-editor>
                     @error("ingredientes")
                         <span class="invalid-feedback d-block" role="alert"> 
                             <strong> {{$message}} </strong>
@@ -70,6 +70,15 @@
                     @enderror
                 </div>
 
+                <div class="form-group mt-3">
+                    <label for="imagen">Elige  la imagen</label>
+                    <input id="imagen" type="file" class="form-control @error("imagen") is-invalid @enderror" name="imagen">
+                    @error("imagen")
+                        <span class="invalid-feedback d-block" role="alert"> 
+                            <strong> {{$message}} </strong>
+                        </span>
+                    @enderror
+                </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Agregar Receta">
                 </div>
