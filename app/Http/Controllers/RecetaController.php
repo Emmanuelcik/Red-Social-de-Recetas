@@ -13,7 +13,7 @@ class RecetaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth");
+        $this->middleware("auth", ["except" => "show"]);
     }
     /**
      * Display a listing of the resource.
@@ -109,7 +109,8 @@ class RecetaController extends Controller
      */
     public function edit(Receta $receta)
     {
-        //
+        $categorias = CategoriaReceta::all(["id", "nombre"]);
+        return view("recetas.edit", compact("categorias"));
     }
 
     /**

@@ -71447,6 +71447,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.config.ignoredElements = ["trix-editor", "trix-toolbars"];
 Vue.component("fecha-receta", __webpack_require__(/*! ./components/Fecha.vue */ "./resources/js/components/Fecha.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
