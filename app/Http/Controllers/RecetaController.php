@@ -34,10 +34,8 @@ class RecetaController extends Controller
      */
     public function create()
     {
-        // DB::table('categoria_receta')->get()->pluck("nombre", "id")->dd();
-
         //Obtener las categorias sin un modelo
-        // $categorias = DB::table('categoria_recetas')->get()->pluck("nombre", "id");
+        //$categorias = DB::table('categoria_recetas')->get()->pluck("nombre", "id");
 
         //obtener las categorias pero con un modelo
         $categorias = CategoriaReceta::all(["id", "nombre"]);
@@ -110,7 +108,7 @@ class RecetaController extends Controller
     public function edit(Receta $receta)
     {
         $categorias = CategoriaReceta::all(["id", "nombre"]);
-        return view("recetas.edit", compact("categorias"));
+        return view("recetas.edit", compact("categorias", "receta"));
     }
 
     /**
@@ -122,7 +120,13 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        //
+        $data = request()->validate([
+            "titulo" => "required|min:6",
+            "categoria" => "required",
+            "preparacion" => "required",
+            "ingredientes" => "required",
+             "imagen" => "required|image"
+        ]);
     }
 
     /**
