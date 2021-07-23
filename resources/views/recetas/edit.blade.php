@@ -11,7 +11,7 @@
     <h2 class="text-center mb-5">Editar Receta: {{$receta->titulo}}</h2>
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form action="{{ route("recetas.update", ["receta" => $receta->id]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route("recetas.update", ["receta" => $receta->id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method("PUT")
                 <div class="form-group">

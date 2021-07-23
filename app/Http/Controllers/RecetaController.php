@@ -120,13 +120,23 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        $data = request()->validate([
+
+        $data = $request->validate([
             "titulo" => "required|min:6",
             "categoria" => "required",
             "preparacion" => "required",
             "ingredientes" => "required",
-             "imagen" => "required|image"
+            // "imagen" => "required|image"
         ]);
+
+        $receta->titulo = $data["titulo"];
+        $receta->preparacion = $data["preparacion"];
+        $receta->categoria_id = $data["categoria"];
+        $receta->ingredientes = $data["ingredientes"];
+        $receta->save();
+
+        //redireccionar
+        return redirect()->action("RecetaController@index");
     }
 
     /**
