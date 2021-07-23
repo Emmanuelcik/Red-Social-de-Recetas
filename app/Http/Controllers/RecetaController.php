@@ -121,6 +121,9 @@ class RecetaController extends Controller
     public function update(Request $request, Receta $receta)
     {
 
+        //Revisar el policy 
+        $this->authorize("update", $receta);
+
         $data = $request->validate([
             "titulo" => "required|min:6",
             "categoria" => "required",
@@ -129,12 +132,23 @@ class RecetaController extends Controller
             // "imagen" => "required|image"
         ]);
 
+        //Si el usuario sube una nueva imagen 
+        if(request("imagen")){
+            //Obtener la ruta de la imagen
+            $ruta_imagen = $request["imagen"]->store("upload-recetas", "public");
+            //Rezise de la imagen 
+            $imagen = Image::make( public_path("storage/{$ruta_imagen}") )->fit(1000, 550);
+            $imagen->save();
+            $receta->imagen = $ruta_imagen;
+        }
+
         $receta->titulo = $data["titulo"];
         $receta->preparacion = $data["preparacion"];
         $receta->categoria_id = $data["categoria"];
         $receta->ingredientes = $data["ingredientes"];
         $receta->save();
 
+        
         //redireccionar
         return redirect()->action("RecetaController@index");
     }
@@ -147,6 +161,12 @@ class RecetaController extends Controller
      */
     public function destroy(Receta $receta)
     {
-        //
+        //Ejecutar el policy 
+        $this->authorize("delete", $receta);
+
+        //Eliminar la receta
+        $receta->delete();
+
+        return redirect()->action("RecetaController@index");
     }
 }
