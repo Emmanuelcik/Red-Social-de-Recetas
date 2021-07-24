@@ -10,7 +10,7 @@ class Receta extends Model
         'titulo', 'preparacion', 'ingredientes', 'imagen', 'categoria_id'
     ];
     //Obtiene la categoria de la receta por medio de la llave foranea
-    public function Categoria(){
+    public function categoria(){
         return $this->belongsTo(CategoriaReceta::class);
     }
 
