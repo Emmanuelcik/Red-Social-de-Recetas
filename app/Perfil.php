@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Perfil extends Model
 {
-    //Relacion uno a uno de perfil con usuario
-    public function usuario () {
+    // relación 1:1 de Perfil con usuario
+    public function usuario()
+    {
         return $this->belongsTo(User::class);
     }
+
 }
