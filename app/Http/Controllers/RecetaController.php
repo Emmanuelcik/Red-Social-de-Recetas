@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CategoriaReceta;
 use App\Receta;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +61,7 @@ class RecetaController extends Controller
             "ingredientes" => "required",
              "imagen" => "required|image"
         ]);
+        
         //Obtener la ruta de la imagen
         $ruta_imagen = $request["imagen"]->store("upload-recetas", "public");
         //Rezise de la imagen 
@@ -77,7 +79,7 @@ class RecetaController extends Controller
         // ]);
 
         //Almacenar en la base de datos con el modelo
-        auth()->user()->recetas()->create([
+        Auth::user()->recetas()->create([
             "titulo" => $data["titulo"],
             "preparacion" => $data["preparacion"],
             "ingredientes" => $data["ingredientes"],
@@ -86,7 +88,7 @@ class RecetaController extends Controller
         ]);
         return redirect()->action("RecetaController@index");
     }
-
+        
     /**
      * Display the specified resource.
      *

@@ -19,7 +19,7 @@
                     name="titulo" 
                     class="form-control @error("titulo") is-invalid @enderror" 
                     id="titulo" 
-                    value=" {{ old("titulo") }}"
+                    value=" {{ old("titulo") }} "
                     placeholder="Titulo Receta">
 
                     @error("titulo")
