@@ -21,7 +21,7 @@
                     name="titulo" 
                     class="form-control @error("titulo") is-invalid @enderror" 
                     id="titulo" 
-                    value=" {{ $receta->titulo}}"
+                    value="{{$receta->titulo}}"
                     placeholder="Titulo Receta">
 
                     @error("titulo")
