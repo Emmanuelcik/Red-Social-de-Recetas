@@ -29,4 +29,5 @@ Route::delete("/recetas/{receta}", "RecetaController@destroy")->name("recetas.de
 
 //Rutas de los perfiles
 Route::get("/perfiles/{perfil}", "PerfilController@show")->name("perfiles.show");
+Route::get("/perfiles/{perfil}/edit", "PerfilController@edit")->name("perfiles.edit");
 // Route::get('/home', 'HomeController@index')->name('home');
