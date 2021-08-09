@@ -16,7 +16,7 @@ class PerfilController extends Controller
      */
     public function show(Perfil $perfil)
     {
-        return view("perfiles.show", compact("perfil"));
+        return view("perfiles.show", compact("perfil") );
     }
 
     /**
