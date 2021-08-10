@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('botones')
-    <a href="{{ route("recetas.create") }}" class="btn btn-primary mr-2 text-white">Crear Receta</a>
+    <a href="{{ route("recetas.create") }}" class="btn btn-outline-primary mr-2 text-uppercase font-weight-bold">Crear Receta</a>
+    {{-- <a href="{{ route("perfiles.edit", ["perfil" => $usuario->id]) }}" class="btn btn-success mr-2 text-white">Editar perfil</a> --}}
+    <a href="{{ route("perfiles.edit", ["perfil" => Auth::user()->id]) }}" class="btn btn-outline-success mr-2 text-uppercase font-weight-bold">Editar perfil</a>
+    <a href="{{ route("perfiles.show", ["perfil" => Auth::user()->id]) }}" class="btn btn-outline-info mr-2 text-uppercase font-weight-bold">Ver perfil</a>
 @endsection
 @section('content')
     <h2 class="text-center mb-5">Administra tus recetas</h2>
