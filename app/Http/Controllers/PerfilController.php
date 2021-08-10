@@ -39,7 +39,7 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
-        //
+        return "Actualizando perfil";
     }
 
     /**

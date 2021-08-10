@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('styles')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 
 @section('botones')
-    <a href="{{ route("recetas.index") }}" class="btn btn-primary mr-2 text-white">Volver</a>
+    <a href="{{ route("perfiles.show", ["perfil" => $perfil->id]) }}" class="btn btn-primary mr-2 text-white">Volver</a>
 @endsection
 
 @section('content')
@@ -13,7 +13,10 @@
     <h1 class="text-center" >Editar mi perfil</h1>
     <div class="row justify-content-center mt-5">
         <div class="col-md-10 bg-white p-3">
-            <form action="">
+            <form action=" {{ route("perfiles.update", ["perfil" => $perfil->id]) }}" method="POST" 
+                enctype="multipart/form-data">
+                @csrf
+                @method("PUT")
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
 
@@ -49,7 +52,7 @@
                 </div>
 
                 <div class="form-group mt-3">
-                    <label for="biografia">Preparación</label>
+                    <label for="biografia">biografia</label>
                     <input id="biografia" type="hidden" name="biografia" >
                     <trix-editor input="biografia" 
                     class="form-control @error("biografia") is-invalid @enderror"></trix-editor>
@@ -75,6 +78,10 @@
                         </span>
                     @enderror
                 @endif
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Guardar Cambios">
                 </div>
             </form>
         </div>
