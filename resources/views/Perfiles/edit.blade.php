@@ -24,7 +24,7 @@
                     name="nombre" 
                     class="form-control @error("nombre") is-invalid @enderror" 
                     id="nombre" 
-                    {{-- value="{{$perfil->nombre}}" --}}
+                    value="{{$perfil->usuario->name}}"
                     placeholder="Tu nombre">
 
                     @error("nombre")
@@ -41,7 +41,7 @@
                     name="url" 
                     class="form-control @error("url") is-invalid @enderror" 
                     id="url" 
-                    {{-- value="{{$perfil->nombre}}" --}}
+                    value="{{$perfil->usuario->url}}"
                     placeholder="Tu Sitio web">
 
                     @error("url")
@@ -53,7 +53,7 @@
 
                 <div class="form-group mt-3">
                     <label for="biografia">biografia</label>
-                    <input id="biografia" type="hidden" name="biografia" >
+                    <input id="biografia" type="hidden" name="biografia" value="{{$perfil->biografia}}">
                     <trix-editor input="biografia" 
                     class="form-control @error("biografia") is-invalid @enderror"></trix-editor>
                     @error("biografia")
