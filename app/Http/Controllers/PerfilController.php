@@ -32,7 +32,8 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
-        // $this->authorize("update", $perfil);
+        $this->authorize("view", $perfil);
+        
         return view("perfiles.edit", compact("perfil"));
     }
 

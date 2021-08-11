@@ -23,7 +23,7 @@ class UsuarioSeeder extends Seeder
             "updated_at" => date("Y-m-d H:i:s")
         ]);
 
-        $user->perfil->create();
+        
 
         $user2 = User::create([
             "name" => "Jesus",
@@ -33,6 +33,6 @@ class UsuarioSeeder extends Seeder
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s")
         ]);
-        $user2->perfil->create();
+        
     }
 }

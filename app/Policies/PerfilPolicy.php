@@ -30,7 +30,7 @@ class PerfilPolicy
      */
     public function view(User $user, Perfil $perfil)
     {
-        //
+        return $user->id === $perfil->user_id;
     }
 
     /**
