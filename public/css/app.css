@@ -10947,7 +10947,8 @@ body {
 }
 
 trix-editor {
-  height: 300px;
+  min-height: 300px;
+  height: auto !important;
 }
 
 .bg-primary .navbar-brand {
