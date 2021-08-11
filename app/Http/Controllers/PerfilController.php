@@ -8,6 +8,10 @@ use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth", ["except" => "show"]);
+    }
 
     /**
      * Display the specified resource.
@@ -28,6 +32,7 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
+        // $this->authorize("update", $perfil);
         return view("perfiles.edit", compact("perfil"));
     }
 
@@ -40,6 +45,8 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
+        //verificar que el usuario autenticado sea el que quiera actualizar
+        $this->authorize("update", $perfil);
         //validar 
         $data = $request->validate([
             "nombre" => "required",
