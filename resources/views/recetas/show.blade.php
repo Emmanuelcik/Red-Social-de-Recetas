@@ -31,6 +31,8 @@
                 <h2 class="my-3 text-primary">Preparación:</h2>
                 {!! $receta->preparacion !!}
             </div>
+
+            <like-button></like-button>
         </div>
     </article>
 @endsection
