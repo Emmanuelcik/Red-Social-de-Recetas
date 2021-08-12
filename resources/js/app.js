@@ -35,3 +35,7 @@ Vue.component("like-button", require("./components/LikeButton.vue").default);
 const app = new Vue({
     el: '#app',
 });
+
+$('.like-btn').on('click', function() {
+   $(this).toggleClass('like-active');
+});
