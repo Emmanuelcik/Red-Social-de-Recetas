@@ -23,8 +23,6 @@ class UsuarioSeeder extends Seeder
             "updated_at" => date("Y-m-d H:i:s")
         ]);
 
-        
-
         $user2 = User::create([
             "name" => "Jesus",
             "email" => "correo111@correo.com",
