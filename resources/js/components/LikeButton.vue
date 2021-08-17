@@ -2,7 +2,7 @@
 <div>
     <span 
     class="like-btn" 
-    @click="likeReceta" :class="{'like-active' : this.like}"
+    @click="likeReceta" :class="{'like-active' : isActivo}"
     ></span>
     <p> {{cantidadLikes}} me gusta </p>
 </div>
@@ -12,6 +12,7 @@ export default {
     props: ["recetaId", "like", "likes"],
     data : function() {
         return {
+            isActivo: this.like,
             totalLikes: this.likes
         }
     },
@@ -22,16 +23,25 @@ export default {
         likeReceta(){
             axios.post("/recetas/" + this.recetaId)
             .then(respuesta => {
-                console.log(respuesta);
+                // console.log(respuesta);
+                if( respuesta.data.attached.length > 0 ){
+                    
+                    this.$data.totalLikes++;
+                }else if (respuesta.data.detached.length > 0){
+                    this.$data.totalLikes--;
+                }
+                this.isActivo = !isActivo;
             })
             .catch(error => {
-                console.log(error);
+                if(error.response.status === 401) {
+                    window.location = "/register";
+                }
             })
         }
     },
     computed: {
         cantidadLikes: function () {
-            return this.likes
+            return this.totalLikes
         }
     }
 }
