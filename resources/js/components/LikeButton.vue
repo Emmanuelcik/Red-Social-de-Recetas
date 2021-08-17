@@ -1,14 +1,14 @@
 <template>
 <div>
     <span class="like-btn" 
-    @click="likesReceta"></span>
+    @click="likeReceta"></span>
 </div>
 </template>
 <script>
 export default {
     props: ["recetaId"],
     methods: {
-        likesReceta(){
+        likeReceta(){
             axios.post("/recetas/" + this.recetaId)
             .then(respuesta => {
                 console.log(respuesta);
