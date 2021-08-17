@@ -2050,8 +2050,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["recetaId", "like"],
+  props: ["recetaId", "like", "likes"],
+  data: function data() {
+    return {
+      totalLikes: this.likes
+    };
+  },
   // mounted() {
   //     console.log(this.like);
   // },
@@ -2062,6 +2068,11 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    }
+  },
+  computed: {
+    cantidadLikes: function cantidadLikes() {
+      return this.likes;
     }
   }
 });
@@ -60002,7 +60013,9 @@ var render = function() {
       staticClass: "like-btn",
       class: { "like-active": this.like },
       on: { click: _vm.likeReceta }
-    })
+    }),
+    _vm._v(" "),
+    _c("p", [_vm._v(" " + _vm._s(_vm.cantidadLikes) + " me gusta ")])
   ])
 }
 var staticRenderFns = []

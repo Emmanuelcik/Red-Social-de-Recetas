@@ -4,11 +4,17 @@
     class="like-btn" 
     @click="likeReceta" :class="{'like-active' : this.like}"
     ></span>
+    <p> {{cantidadLikes}} me gusta </p>
 </div>
 </template>
 <script>
 export default {
-    props: ["recetaId", "like"],
+    props: ["recetaId", "like", "likes"],
+    data : function() {
+        return {
+            totalLikes: this.likes
+        }
+    },
     // mounted() {
     //     console.log(this.like);
     // },
@@ -21,6 +27,11 @@ export default {
             .catch(error => {
                 console.log(error);
             })
+        }
+    },
+    computed: {
+        cantidadLikes: function () {
+            return this.likes
         }
     }
 }
