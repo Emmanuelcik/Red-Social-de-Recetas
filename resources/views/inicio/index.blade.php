@@ -7,7 +7,7 @@
 @section('content')
     
     <div class="container nuevas-recetas"> 
-        <h2 class="titulo-categoria text-uppercase mt-5 mb-4 ">Últimas recetas</h2>
+        <h2 class="titulo-categoria text-uppercase mb-4 ">Últimas recetas</h2>
         <div class="owl-carousel owl-theme">
             @foreach ($nuevas as $nueva)
                 <div class="card">
