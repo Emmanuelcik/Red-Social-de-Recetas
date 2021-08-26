@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    
+    <img  alt="imagen de fondo" class="hero-categorias"> 
+    {{-- src="{{ asset("/images/bgimagen.jpg")}}" --}}
     <div class="container nuevas-recetas"> 
         <h2 class="titulo-categoria text-uppercase mb-4 ">Últimas recetas</h2>
         <div class="owl-carousel owl-theme">

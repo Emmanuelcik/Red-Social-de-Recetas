@@ -11062,6 +11062,18 @@ trix-editor {
   transform: translateX(0);
 }
 
+.hero-categorias {
+  background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.4), rgba(53, 53, 53, 0.571)), url(/images/bgimagen.jpg?42c3dddf31bdb09b4d38efacd257f8b6);
+  height: 30rem;
+  background-size: cover;
+  background-position: top center;
+}
+
+.hero-categorias .texto-buscar p {
+  font-size: 1.4rem;
+  color: #FFF;
+}
+
 .like-btn {
   display: inline-block;
   Cursor: pointer;
